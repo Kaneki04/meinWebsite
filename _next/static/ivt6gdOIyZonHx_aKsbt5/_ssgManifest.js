@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fblogs\u002F[blog]","\u002Fdienst\u002F[mein-dienst]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
