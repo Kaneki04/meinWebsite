@@ -44,7 +44,7 @@ export default async function Dienst({ params }: { params: Params }) {
           <div className="flex justify-center">
             <Image
               src={meinDienst.imageUrl}
-              alt={`${meinDienst.name} illustration`}
+              alt={"${meinDienst.name} illustration"}
               width={500}
               height={300}
               className="w-80 h-80 max-w-3xl rounded-lg transform hover:scale-105 transition-all duration-300"
