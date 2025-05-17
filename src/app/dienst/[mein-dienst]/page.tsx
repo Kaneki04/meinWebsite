@@ -9,13 +9,11 @@ export function generateStaticParams() {
   }));
 }
 
-interface PageProps {
-  params: {
-    "mein-dienst": string;
-  };
-}
-
-export default async function Dienst({ params }: PageProps) {
+export default async function Dienst({
+  params,
+}: {
+  params: { "mein-dienst": string };
+}) {
   const dienstId = params["mein-dienst"];
 
   const meinDienst = dictionary.find((item) => item.name === dienstId);
