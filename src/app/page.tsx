@@ -16,14 +16,14 @@ export default function Home() {
       {/* ------------------------------------------------ */}
 
       <Header title="Thoughts" subtitle="考え" />
-      <Card title="My Blogs" image="images/a.jpeg" href="/blogs" />
+      <Card title="My Blogs" image="/images/a.jpeg" href="/blogs" />
 
       {/* ------------------------------------------------ */}
 
       <Header title="Apps" subtitle="アプリ" />
       <div className="flex justify-evenly w-full">
-        <Card title="Vicksan" image="images/vicksan.png" href="/apps/vicksan" />
-        <Card title="Kanjizy" image="images/kanjizy.png" href="/apps/kanjizy" />
+        <Card title="Vicksan" image="/images/vicksan.png" href="/apps/vicksan" />
+        <Card title="Kanjizy" image="/images/kanjizy.png" href="/apps/kanjizy" />
       </div>
 
       {/* ------------------------------------------------ */}

@@ -1,16 +1,30 @@
+import React from "react";
 import { dictionary } from "@/data/dienst-data";
 import Header from "@/components/ui/header/header";
+import Image from "next/image";
 
+// Define the Params type as a Promise resolving to an object
+type Params = Promise<{ "mein-dienst": string }>;
+
+// Static params generation (assuming dienst IDs are strings)
 export function generateStaticParams() {
   const dienstIds = Object.keys(dictionary);
 
   return dienstIds.map((dienstId) => ({
-    "mein-dienst": dienstId, 
+    "mein-dienst": dienstId,
   }));
 }
 
-export default function Dienst({ params }: { params: { "mein-dienst": number } }) {
-  const meinDienst = dictionary[params["mein-dienst"]];
+// The main component
+export default async function Dienst({ params }: { params: Params }) {
+  // Await for the params to resolve
+  const { "mein-dienst": dienstId } = await params;
+
+  // Convert the dienstId to a number
+  const meinDienstId = parseInt(dienstId, 10); 
+
+  // Access the meinDienst data from the dictionary
+  const meinDienst = dictionary[meinDienstId];
 
   // Ensure skills exists and is an array before mapping
   const skills = meinDienst.skills || [];
@@ -28,9 +42,11 @@ export default function Dienst({ params }: { params: { "mein-dienst": number } }
 
           {/* Image Section */}
           <div className="flex justify-center">
-            <img
+            <Image
               src={meinDienst.imageUrl}
               alt={`${meinDienst.name} illustration`}
+              width={500}
+              height={300}
               className="w-80 h-80 max-w-3xl rounded-lg transform hover:scale-105 transition-all duration-300"
             />
           </div>

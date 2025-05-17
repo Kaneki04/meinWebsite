@@ -14,7 +14,9 @@ export default function SquareCard({ image, title, href }: CardProps) {
   return (
     <Link className="p-5 max-w-xs w-full rounded-lg overflow-hidden shadow-lg bg-gray-800 hover:bg-gray-600 transform transition duration-300 hover:scale-105" href={href} passHref>
         <div className="relative h-56">
-          <img
+           <Image 
+                width={500}
+                height={300}
             src={image}
             alt={title}
             className="rounded-lg"

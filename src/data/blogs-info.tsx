@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 const SprachenIntro =  (
   <>
     Sprachen sind eines der Dinge, die mich am meisten faszinieren. Wenn man darüber nachdenkt, sind wir die einzige Spezies auf der Welt, die in der Lage ist, so komplexe Konzepte in Worte zu fassen. Ein einziges Wort kann so viele Bedeutungen enthalten.
@@ -146,38 +148,46 @@ Zu diesem Ort...
   </>
 );
 
+interface BlogData {
+  name: string;
+  date: string;
+  imageUrl: string;
+  infoIntro: ReactNode;  // Change to ReactNode
+  infoWhole: ReactNode;  // Change to ReactNode
+  conclusion: ReactNode;  // Change to ReactNode
+}
 
-export const dictionary = [
-  {
+export const dictionary: Record<string, BlogData> = {
+  "0": {
     name: "Sprachen",
     date: "06/12/2024",
     imageUrl: "/images/sprachen.jpeg",
-    infoIntro: SprachenIntro,
+    infoIntro: SprachenIntro,  // Fixed here
     infoWhole: SprachenData,
     conclusion: SprachenConclusion,
   },
-  {
+  "1": {
     name: "Mein Traum",
     date: "07/12/2024",
     imageUrl: "/images/traum.jpg",
-    infoIntro: TraumIntro,
+    infoIntro: TraumIntro,  // Fixed here
     infoWhole: TraumData,
     conclusion: TraumConclusion,
   },
-  {
+  "2": {
     name: "Master of Everything",
     date: "07/12/2024",
     imageUrl: "/images/master.jpeg",
-    infoIntro: MasterIntro,
+    infoIntro: MasterIntro,  // Fixed here
     infoWhole: MasterData,
     conclusion: MasterConclusion,
   },
-  {
+  "3": {
     name: "Für diese Person...",
     date: "07/12/2024",
     imageUrl: "/images/sie.jpeg",
-    infoIntro: PersonIntro,
+    infoIntro: PersonIntro,  // Fixed here
     infoWhole: PersonData,
     conclusion: PersonConclusion,
   },
-];
+};

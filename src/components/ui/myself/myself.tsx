@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Typed from 'typed.js';
+import Image from "next/image";
 
 export default function Header() {
   useEffect(() => {
@@ -23,8 +24,10 @@ export default function Header() {
         
         {/* Image Section */}
         <div className="w-full lg:w-1/2 flex justify-center animate__animated animate__fadeIn animate__delay-0.5s">
-          <img
-            src="images/ich.jpg"
+           <Image 
+                width={500}
+                height={300}
+            src="/images/ich.jpg"
             alt="App Screenshot"
             className="w-72 h-72 sm:w-80 sm:h-80 object-cover rounded-lg shadow-2xl hover:scale-110 transition-transform duration-500 ease-in-out"
           />
@@ -49,8 +52,10 @@ export default function Header() {
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 bg-transparent text-lg font-medium rounded-lg border border-white shadow-xl transform hover:scale-110 transition-all duration-300 hover:bg-white hover:text-black mx-auto lg:mx-0"
           >
-            <img
-              src="images/gp.png" // Update this path with your actual image location
+             <Image 
+                width={500}
+                height={300}
+              src="/images/gp.png" // Update this path with your actual image location
               alt="Google Play Logo"
               className="w-5 h-5 mr-3"
             />

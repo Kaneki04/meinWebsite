@@ -1,6 +1,7 @@
 import React from "react";
 import { dictionary } from "@/data/apps-info";
 import Header from "@/components/ui/header/header";
+import Image from "next/image";
 
 const Kanjizy = () => {
   
@@ -15,7 +16,9 @@ const Kanjizy = () => {
             {/* Blog Info Section */}
             <div className="flex flex-col lg:flex-row lg:space-x-8 items-center lg:items-start">
               <div className="flex-shrink-0">
-                <img
+                <Image 
+                width={500}
+                height={300}
                   src={dictionary[1].imageUrl}
                   alt={`${dictionary[1].name} main illustration`}
                   className="w-full max-w-md h-auto object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
@@ -30,7 +33,9 @@ const Kanjizy = () => {
             {dictionary[1].images && dictionary[1].images.length > 0 && (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {dictionary[1].images.map((image, index) => (
-                  <img
+                   <Image 
+                    width={500}
+                    height={300}
                     key={index}
                     src={image}
                     alt={`${dictionary[1].name} additional illustration ${index + 1}`}
@@ -51,7 +56,9 @@ const Kanjizy = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 bg-transparent  text-lg font-medium rounded-lg border border-white shadow-xl transform hover:scale-110 transition-all duration-300 hover:bg-white hover:text-black"
           >
-            <img
+             <Image 
+                width={500}
+                height={300}
               src="/images/gp.png"
               alt="Google Play Logo"
               className="w-5 h-5 mr-3"
