@@ -44,7 +44,7 @@ export default async function Dienst({ params }: { params: Params }) {
           <div className="flex justify-center">
             <Image
               src={meinDienst.imageUrl}
-              alt={"${meinDienst.name} illustration"}
+              alt={`${meinDienst.name} illustration`}
               width={500}
               height={300}
               className="w-80 h-80 max-w-3xl rounded-lg transform hover:scale-105 transition-all duration-300"
@@ -65,7 +65,7 @@ export default async function Dienst({ params }: { params: Params }) {
 
           {/* Professional Invitation */}
           <p className="text-lg leading-relaxed text-gray-300">
-            If you're looking for a passionate, skilled, and reliable partner to bring your ideas to life, I would be thrilled to collaborate with you. Whether you're looking to build a powerful mobile app with Flutter or a dynamic, responsive website, I am confident in my ability to help you achieve your goals. Let's work together to create something impactful and innovative.
+            If you&apos;re looking for a passionate, skilled, and reliable partner to bring your ideas to life, I would be thrilled to collaborate with you. Whether you&apos;re looking to build a powerful mobile app with Flutter or a dynamic, responsive website, I am confident in my ability to help you achieve your goals. Let&apos;s work together to create something impactful and innovative.
             <br /><br />
             Please feel free to reach out to discuss your project in more detail or to explore how we can bring your vision to reality. I look forward to the opportunity to collaborate!
           </p>
