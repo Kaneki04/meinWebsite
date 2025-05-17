@@ -12,15 +12,14 @@ export function generateStaticParams() {
   }));
 }
 
-// The main component
-export default async function Dienst({
-  params,
-}: {
-  params: { "mein-dienst": string };
-}) {
-  const dienstId = params["mein-dienst"];
+interface Params {
+  "mein-dienst": string;
+}
 
-  // Parse the dienstId to number to match dictionary keys if keys are numbers
+// The main component (now synchronous)
+export default function Dienst({ params }: { params: Params }) {
+  const { "mein-dienst": dienstId } = params;
+
   const meinDienstId = parseInt(dienstId, 10);
 
   const meinDienst = dictionary[meinDienstId];
@@ -52,24 +51,20 @@ export default async function Dienst({
           <h2 className="text-2xl font-bold text-gray-100">My Skills:</h2>
           <ul className="list-disc pl-6 space-y-3 text-lg text-gray-300">
             {skills.length > 0 ? (
-              skills.map((skill, index) => <li key={index}>{skill}</li>)
+              skills.map((skill: string, index: number) => <li key={index}>{skill}</li>)
             ) : (
               <li>No skills available</li>
             )}
           </ul>
 
           <p className="text-lg leading-relaxed text-gray-300">
-            If you&apos;re looking for a passionate, skilled, and reliable partner to
-            bring your ideas to life, I would be thrilled to collaborate with you.
-            Whether you&apos;re looking to build a powerful mobile app with Flutter or a
-            dynamic, responsive website, I am confident in my ability to help you achieve
-            your goals. Let&apos;s work together to create something impactful and
-            innovative.
-            <br />
-            <br />
-            Please feel free to reach out to discuss your project in more detail or to
-            explore how we can bring your vision to reality. I look forward to the
-            opportunity to collaborate!
+            If you&apos;re looking for a passionate, skilled, and reliable partner to bring your ideas to life,
+            I would be thrilled to collaborate with you. Whether you&apos;re looking to build a powerful mobile app
+            with Flutter or a dynamic, responsive website, I am confident in my ability to help you achieve your goals.
+            Let&apos;s work together to create something impactful and innovative.
+            <br /><br />
+            Please feel free to reach out to discuss your project in more detail or to explore how we can bring
+            your vision to reality. I look forward to the opportunity to collaborate!
           </p>
         </section>
       </div>
