@@ -3,24 +3,21 @@ import { dictionary } from "@/data/dienst-data";
 import Header from "@/components/ui/header/header";
 import Image from "next/image";
 
-// Static params generation (assuming dienst IDs are strings)
 export function generateStaticParams() {
-  const dienstIds = dictionary.map((item) => item.name);
-
-  return dienstIds.map((dienstId) => ({
-    "mein-dienst": dienstId,
+  return dictionary.map((item) => ({
+    "mein-dienst": item.name,
   }));
 }
 
-interface Params {
-  "mein-dienst": string;
+interface PageProps {
+  params: {
+    "mein-dienst": string;
+  };
 }
 
-// The main component (async because Next.js expects a Promise return)
-export default async function Dienst({ params }: { params: Params }) {
-  const { "mein-dienst": dienstId } = params;
+export default async function Dienst({ params }: PageProps) {
+  const dienstId = params["mein-dienst"];
 
-  // Find the dienst by name in the dictionary array
   const meinDienst = dictionary.find((item) => item.name === dienstId);
 
   if (!meinDienst) {
@@ -50,7 +47,7 @@ export default async function Dienst({ params }: { params: Params }) {
           <h2 className="text-2xl font-bold text-gray-100">My Skills:</h2>
           <ul className="list-disc pl-6 space-y-3 text-lg text-gray-300">
             {skills.length > 0 ? (
-              skills.map((skill: string, index: number) => <li key={index}>{skill}</li>)
+              skills.map((skill, index) => <li key={index}>{skill}</li>)
             ) : (
               <li>No skills available</li>
             )}
@@ -61,7 +58,8 @@ export default async function Dienst({ params }: { params: Params }) {
             I would be thrilled to collaborate with you. Whether you&apos;re looking to build a powerful mobile app
             with Flutter or a dynamic, responsive website, I am confident in my ability to help you achieve your goals.
             Let&apos;s work together to create something impactful and innovative.
-            <br /><br />
+            <br />
+            <br />
             Please feel free to reach out to discuss your project in more detail or to explore how we can bring
             your vision to reality. I look forward to the opportunity to collaborate!
           </p>
