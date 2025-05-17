@@ -5,7 +5,7 @@ import Image from "next/image";
 
 // Static params generation (assuming dienst IDs are strings)
 export function generateStaticParams() {
-  const dienstIds = Object.keys(dictionary);
+  const dienstIds = dictionary.map((item) => item.name);
 
   return dienstIds.map((dienstId) => ({
     "mein-dienst": dienstId,
@@ -16,13 +16,12 @@ interface Params {
   "mein-dienst": string;
 }
 
-// The main component (now synchronous)
-export default function Dienst({ params }: { params: Params }) {
+// The main component (async because Next.js expects a Promise return)
+export default async function Dienst({ params }: { params: Params }) {
   const { "mein-dienst": dienstId } = params;
 
-  const meinDienstId = parseInt(dienstId, 10);
-
-  const meinDienst = dictionary[meinDienstId];
+  // Find the dienst by name in the dictionary array
+  const meinDienst = dictionary.find((item) => item.name === dienstId);
 
   if (!meinDienst) {
     return <div className="text-center text-red-500">Dienst not found.</div>;
