@@ -15,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-bg-[#090f1b]">
-        <AppBar />
+      <body className="bg-[#090f1b]">
+      <AppBar />
         <div className="pb-20 "> 
           {children}
         </div>
