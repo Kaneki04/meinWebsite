@@ -7,11 +7,14 @@ const nextConfig: NextConfig = {
   basePath: isProd ? '/meinWebsite' : '',
   assetPrefix: isProd ? '/meinWebsite/' : '',
   images: {
-    unoptimized: true, // <-- Add this line
+    unoptimized: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
+  someFeature: {
+    enabled: isProd,  // example flag only enabled in production
+  }
 };
 
 export default nextConfig;
